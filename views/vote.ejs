@@ -1,0 +1,86 @@
+<div v-if="votePrompt.players[0].clientId == me.id">
+    <h2 class="mb-5">Voting</h2>
+
+    <h3 class="mb-3">Wait for others to vote for your answer...</h3>
+    <div class="row">
+        <h4 class="d-flex justify-content-center"> <strong>Prompt:</strong> &nbsp; {{votePrompt.prompt}} </h4>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+        <button class="col btn btn-primary m-2 mt-1 p-5 prompt col d-block" disabled> {{votePrompt.players[0].answer}} </button>
+        </div>
+
+        <div class="col-6">
+        <button class="col btn btn-primary m-2 mt-1 p-5 prompt col d-block" disabled> {{votePrompt.players[1].answer}} </button>
+        </div>
+    </div>
+</div>
+
+<div v-else-if="votePrompt.players[1].clientId == me.id">
+    <h2 class="mb-5">Voting</h2>
+
+    <h3 class="mb-3">Wait for others to vote for your answer...</h3>
+    <div class="row">
+        <h4 class="d-flex justify-content-center"> <strong>Prompt:</strong> &nbsp; {{votePrompt.prompt}} </h4>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+        <button class="col btn btn-primary m-2 mt-1 p-5 prompt col d-block" disabled> {{votePrompt.players[0].answer}} </button>
+        </div>
+
+        <div class="col-6">
+        <button class="col btn btn-primary m-2 mt-1 p-5 prompt col d-block" disabled> {{votePrompt.players[1].answer}} </button>
+        </div>
+    </div>
+</div>
+
+<div v-else-if="me.state == 0">
+    <h2 class="mb-5">Voting</h2>
+
+    <h2 class="mb-3">Who made a better point?</h2>
+    <div class="row">
+        <h4 class="d-flex justify-content-center"> <strong>Prompt:</strong> &nbsp; {{votePrompt.prompt}} </h4>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <button class="btn btn-primary p-5 prompt m-2" @click="handleVote(0)"> {{votePrompt.players[0].answer}} </button>
+        </div>
+
+        <div class="col-6">
+            <button class="btn btn-primary p-5 m-2 prompt" @click="handleVote(1)"> {{votePrompt.players[1].answer}} </button>
+        </div>
+    </div>
+</div>
+
+<div v-if="me.state == 1">
+    <h2 class="mb-5">Voting</h2>
+
+    <h2 class="mb-3">Who made a better point?</h2>
+    <div class="row">
+        <h4 class="d-flex justify-content-center"> <strong>Prompt:</strong> &nbsp; {{votePrompt.prompt}} </h4>
+    </div>
+    <hr>
+    <div class="row" v-if="votedFor === 0">
+        <div class="col-6">
+            <button class="btn btn-success m-2 mt-1 p-5 prompt col d-block" disabled> {{votePrompt.players[0].answer}} </button>
+        </div>
+
+        <div class="col-6">
+            <button class="col btn btn-secondary m-2 mt-1 p-5 prompt col d-block" disabled> {{votePrompt.players[1].answer}} </button>
+        </div>
+
+    </div>
+
+    <div class="row" v-if="votedFor === 1">
+        <div class="col-6">
+        <button class="col btn btn-secondary m-2 mt-1 p-5 prompt col d-block" disabled> {{votePrompt.players[0].answer}} </button>
+        </div>
+
+        <div class="col-6">
+        <button class="col btn btn-success m-2 mt-1 p-5 prompt col d-block" disabled> {{votePrompt.players[1].answer}} </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+
+<div>
+    <h2 class="mb-5">Submit Prompts</h2>
+    <div class="mb-3">
+        <label for="promptSubmission" class="form-label">Submit a prompt:</label>
+        <input id="promptSubmission" class="form-control" v-model="newprompt" @keyup.enter="handleSubmitPrompt()" type="text" placeholder="Enter a prompt" minlength="15" maxlength="80">
+    </div>
+
+    <button @click="handleSubmitPrompt()" class="btn btn-primary">Submit Prompt</button>
+</div>
+
+<div v-if="me.state == 1000">
+    <h2 class="mb-5">Submit Prompts</h2>
+
+    <div class="mb-3">
+        <label for="promptSubmissionRead" class="form-label">Submit a prompt:</label>
+        <input id="promptSubmissionRead" class="form-control" v-model="newprompt" type="text" readonly>
+    </div>
+
+    <button class="btn btn-primary" disabled>Prompt Submitted!</button>
+</div>

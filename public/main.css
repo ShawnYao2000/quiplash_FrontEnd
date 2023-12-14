@@ -1,0 +1,82 @@
+body {
+    background-image: url('/path/to/your/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #acc5d0;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    background-color: rgba(255,255,255,0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    height: auto;
+    max-height: 90vh;
+    overflow: auto;
+}
+
+#chat {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    max-height: 70vh;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+#chat li {
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+#chat li:nth-child(odd) {
+    background-color: rgba(230, 230, 230, 0.9);
+}
+
+.players {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    max-height: 70vh;
+}
+
+.players li {
+    list-style-type: none;
+    padding: 10px;
+    background-color: rgba(100,100,100,0.2);
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.players li:nth-child(odd) {
+    background-color: rgba(120,120,120,0.2);
+}
+
+.players li:hover {
+    background-color: rgba(140,140,140,0.2);
+}
+
+.prompt {
+    min-height: 120px;
+    overflow-wrap: break-word;
+    width: 95%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

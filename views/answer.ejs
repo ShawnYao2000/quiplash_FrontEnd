@@ -1,0 +1,34 @@
+<div v-if="me.state == 0 && me.player">
+    <div class="w-100 d-flex mb-5">
+        <h2 class="d-inline me-auto">Submit Answer</h2>
+        <h3 class="d-inline align-self-end ms-auto">Seconds Remaining: {{timer}}</h3>
+    </div>
+
+    <div class="mb-3">
+        <label for="answerSubmission" class="form-label"> <strong> {{prompt.prompt}} </strong> </label>
+        <input id="answerSubmission" class="form-control" v-model="promptAnswer" @keyup.enter="handleSubmitAnswer()" type="text" placeholder="Enter an answer">
+    </div>
+    <!-- Disabled attribute added here -->
+    <button @click="handleSubmitAnswer()" :disabled="!promptAnswer" type="submit" class="btn btn-primary">Submit</button>
+</div>
+
+<div v-if="me.state == 1 && me.player">
+    <div class="w-100 d-flex mb-5">
+        <h2 class="d-inline me-auto">Submit Answer</h2>
+        <h3 class="d-inline align-self-end ms-auto" >Seconds Remaining: {{timer}}</h3>
+    </div>
+
+    <div class="mb-3">
+        <label for="answerSubmissionRead" class="form-label"> <strong> {{prompt.prompt}} </strong> </label>
+        <input id="answerSubmissionRead" class="form-control" v-model="promptAnswer" type="text" readonly>
+    </div>
+
+    <button class="btn btn-primary" disabled>Answer Submitted!</button>
+</div>
+
+<div v-if="!me.player">
+    <h2>Audiences may not submit answers.</h2>
+
+    <iframe width="60" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+

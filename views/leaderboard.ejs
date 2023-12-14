@@ -1,0 +1,22 @@
+<div>
+    <h2 class="mt-3 mb-3">Top 5 Legends</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Username</th>
+            <th>Total Score</th>
+            <th>Games Played</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(player, index) in leaderboard.sort((p, p2) => p2.total_score - p.total_score)">
+            <td>{{ index + 1 }}</td>
+            <td>{{ player.username }}</td>
+            <td>{{ player.total_score }}</td>
+            <td>{{ player.games_played }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

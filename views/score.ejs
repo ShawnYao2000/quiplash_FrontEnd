@@ -1,0 +1,20 @@
+<div>
+    <h2 class="mb-5">Current Scores</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Player</th>
+            <th>Total Score</th>
+            <th>Round Score</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="player in players.sort((p, p2) => p2.total_score - p.total_score)">
+            <td>{{ player.username }}</td>
+            <td>{{ player.total_score }}</td>
+            <td>+{{ player.round_score }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

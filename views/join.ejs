@@ -1,0 +1,14 @@
+<style>
+    .player-box {
+        border: 1px solid #000;
+        padding: 10px; /* Some padding inside the box */
+        margin: 5px; /* Space between boxes */
+        border-radius: 5px; /* Rounded corners for the box */
+        text-align: center; /* Center-align the text */
+    }
+</style>
+
+<div class="players">
+    <h3 v-if="players.length > 0">Players</h3>
+    <li class="player-box" v-for="player in players"> {{ player.username }} </li>
+</div>

@@ -1,0 +1,69 @@
+<div v-if="votePrompt.players[0].votes > votePrompt.players[1].votes">
+    <h2 class="mb-5">RESULTS</h2>
+    <div class="row">
+        <h4 class="d-flex justify-content-center"> <strong>Prompt:</strong> &nbsp; {{votePrompt.prompt}} </h4>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <button class="row btn btn-success m-2 mt-1 p-2 row prompt" style="width: 95%;" disabled> {{votePrompt.players[0].answer}} </button>
+            <div class="row ms-2 h3">Player: {{players[votePrompt.players[0].clientId].username}}</div>
+            <div class="row ms-2 h3">Votes: {{votePrompt.players[0].votes}}</div>
+            <div class="row ms-2 h3">Score: {{votePrompt.players[0].score}}</div>
+        </div>
+
+        <div class="col-6">
+            <button class="btn btn-info m-2 mt-1 p-2 row prompt" style="width: 95%;" disabled> {{votePrompt.players[1].answer}} </button>
+            <div class="row ms-2 h3">Player: {{players[votePrompt.players[1].clientId].username}}</div>
+            <div class="row ms-2 h3">Votes : {{votePrompt.players[1].votes}}</div>
+            <div class="row ms-2 h3">Score: {{votePrompt.players[1].score}}</div>
+        </div>
+    </div>
+</div>
+
+<div v-else-if="votePrompt.players[0].votes < votePrompt.players[1].votes">
+    <h2 class="mb-5">RESULTS</h2>
+    <div class="row">
+        <h4 class="d-flex justify-content-center"> <strong>Prompt:</strong> &nbsp; {{votePrompt.prompt}} </h4>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <button class="row btn btn-info m-2 mt-1 p-2 row prompt" style="width: 95%;" disabled> {{votePrompt.players[0].answer}} </button>
+            <div class="row ms-2 h3">Player: {{players[votePrompt.players[0].clientId].username}}</div>
+            <div class="row ms-2 h3">Votes: {{votePrompt.players[0].votes}}</div>
+            <div class="row ms-2 h3">Score: {{votePrompt.players[0].score}}</div>
+        </div>
+
+        <div class="col-6">
+            <button class="btn btn-success m-2 mt-1 p-2 row prompt" style="width: 95%;" disabled> {{votePrompt.players[1].answer}} </button>
+            <div class="row ms-2 h3">Player: {{players[votePrompt.players[1].clientId].username}}</div>
+            <div class="row ms-2 h3">Votes : {{votePrompt.players[1].votes}}</div>
+            <div class="row ms-2 h3">Score: {{votePrompt.players[1].score}}</div>
+        </div>
+    </div>
+</div>
+
+<div v-else>
+    <h2 class="mb-5">RESULTS</h2>
+    <div class="row">
+        <h4 class="d-flex justify-content-center"> <strong>Prompt:</strong> &nbsp; {{votePrompt.prompt}} </h4>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <button class="row btn btn-success m-2 mt-1 p-2 row prompt" style="width: 95%;" disabled> {{votePrompt.players[0].answer}} </button>
+            <div class="row ms-2 h3">Player: {{players[votePrompt.players[0].clientId].username}}</div>
+            <div class="row ms-2 h3">Votes: {{votePrompt.players[0].votes}}</div>
+            <div class="row ms-2 h3">Score: {{votePrompt.players[0].score}}</div>
+        </div>
+
+        <div class="col-6">
+            <button class="btn btn-success m-2 mt-1 p-2 row prompt" style="width: 95%;" disabled> {{votePrompt.players[1].answer}} </button>
+            <div class="row ms-2 h3">Player: {{players[votePrompt.players[1].clientId].username}}</div>
+            <div class="row ms-2 h3">Votes : {{votePrompt.players[1].votes}}</div>
+            <div class="row ms-2 h3">Score: {{votePrompt.players[1].score}}</div>
+        </div>
+    </div>
+</div>
+

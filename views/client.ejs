@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+    <%- include('header'); -%>
+
+    <style>
+        .title {
+            text-align: center;
+            font-size: 48px; /* Larger font size */
+            color: #2c3e50; /* Color of the title */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Text shadow for a 3D effect */
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <h2 class="title">QUIPLASH</h2>
+
+    <div id="game">
+
+        <div v-if="logged_in === 1" class="w-100 d-flex mb-3">
+            <span class="me-auto"> Howdy <strong>{{username}}</strong>!
+                <span v-if="me.admin">(Admin)</span>
+                <span v-else-if="me.player">(Player)</span>
+                <span v-else>(Audience)</span>
+            </span>
+
+            <p>Playing with friend? Join with link: {{ currentUrl }}</p>
+
+            <h3 class="ms-auto">
+                <strong>Stage:</strong> {{ game_state.state }}
+                <span>
+        - {{
+            game_state.state == 1 ? 'Waiting for players...' :
+            game_state.state == 2 ? 'Suggest your prompts' :
+            game_state.state == 3 ? 'Answer them ASAP' :
+            game_state.state == 4 ? 'Vote for your fav' :
+            game_state.state == 5 ? 'Results' :
+            game_state.state == 6 ? 'Total scores' :
+            game_state.state == 7 ? 'Game Over' :
+            ''
+        }}
+    </span>
+                <strong>Round:</strong> {{ game_state.round }}
+                <h4 v-if="game_state.state!=1">
+                    <strong>Submitted Answers:</strong> {{ submittedAnswers }} |
+                    <strong>Total Expected Answers:</strong> {{ totalExpectedAnswers }} |
+                    <strong>Prompt has been submitted by:</strong> {{ formattedPromptUsers }}
+                </h4>
+            </h3>
+
+
+            <div v-if="me.admin" class="ms-auto d-inline align-self-end">
+                <%- include('admin'); -%>
+            </div>
+
+        </div>
+
+
+        <div v-if="!connected">
+            <p>Connecting...</p>
+        </div>
+
+        <!-- Create login -->
+        <div v-else-if="logged_in < 1">
+            <%- include('login'); -%>
+        </div>
+
+        <div v-else-if="game_state.state == 1">
+            <%- include('join'); -%>
+            <%- include('chat'); -%>
+            <%- include('leaderboard') -%>
+        </div>
+
+        <div v-else-if="game_state.state == 2">
+            <%- include('join'); -%>
+            <%- include('prompt'); -%>
+        </div>
+
+        <div v-else-if="game_state.state == 3">
+            <%- include('join'); -%>
+            <%- include('answer'); -%>
+            <%- include('prompt'); -%>
+        </div>
+
+        <div v-else-if="game_state.state == 4">
+            <%- include('join'); -%>
+            <%- include('vote'); -%>
+            <%- include('prompt'); -%>
+        </div>
+
+        <div v-else-if="game_state.state == 5">
+            <%- include('join'); -%>
+            <%- include('results'); -%>
+            <%- include('prompt'); -%>
+        </div>
+
+        <div v-else-if="game_state.state == 6">
+            <%- include('score'); -%>
+        </div>
+
+        <div v-else-if="game_state.state == 7">
+            <%- include('gameover'); -%>
+        </div>
+
+    </div>
+
+    <%- include('footer'); -%>
+
+</html>
+
+
