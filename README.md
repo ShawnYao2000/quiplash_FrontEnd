@@ -1,5 +1,5 @@
 # Readme for Quiplash
-
+# THIS PROJECT IS A PART OF 'QUIPLASH' MAKE SURE TO RUN WITH quiplash_BackEnd
 QUIPLASH is a fun and interactive chat application that allows users to communicate in real-time. The application is built using JavaScript, with the Express server framework, VueJS for the frontend, and Socket.IO for real-time communication.
 
 ## Running QUIPLASH
